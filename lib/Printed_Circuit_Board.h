@@ -47,7 +47,8 @@ namespace Lab3B {
         inline printedCircuitBoard():currentNumber(0) {}; //Implementation is empty because when this constructor is called, constructor of each contact is called too
         friend std::istream & operator >> (std::istream &, Contact &);
         friend std::ostream & operator << (std::ostream &, const printedCircuitBoard &);
-        void addContact(Contact c);
+        //void addContact(Contact c);
+        printedCircuitBoard & operator += (const Contact &);
         void establishConnect (short c1, short c2);
         [[nodiscard]] printedCircuitBoard groupOfContacts() const;
         double lengthOfTrack (short c1, short c2);

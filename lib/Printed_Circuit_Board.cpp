@@ -77,7 +77,7 @@ namespace Lab3B {
         return true;
     }
 
-    void printedCircuitBoard::addContact(Contact c) {
+    /*void printedCircuitBoard::addContact(Contact c) {
         if (currentNumber == maxNumber) {
             throw std::overflow_error("Cannot add more contacts!");
         }
@@ -85,7 +85,7 @@ namespace Lab3B {
             throw std::invalid_argument("There is a contact at this place already!");
         contacts[currentNumber] = c;
         currentNumber++;
-    }
+    }*/
 
     void printedCircuitBoard::establishConnect(short c1, short c2) {
         if (!isCorrectConnection(c1, c2))
@@ -102,7 +102,7 @@ namespace Lab3B {
         contactType type = isCorrectType(t);
         for (int i = 0; i < currentNumber; ++i) {
             if (contacts[i].type == type) {
-                group.addContact(contacts[i]);
+                group += contacts[i];
             }
         }
         return group;
@@ -165,5 +165,16 @@ namespace Lab3B {
             }
         }
         return s;
+    }
+
+    printedCircuitBoard& printedCircuitBoard::operator+=(const printedCircuitBoard::Contact& c) {
+        if (currentNumber == maxNumber) {
+            throw std::overflow_error("Cannot add more contacts!");
+        }
+        if (!isCorrectCoordinates(c.x, c.y))
+            throw std::invalid_argument("There is a contact at this place already!");
+        contacts[currentNumber] = c;
+        currentNumber++;
+        return *this;
     }
 }

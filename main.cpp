@@ -27,7 +27,7 @@ int main() {
                 case 2: {
                     std::cout << "Enter type (0 for input, 1 for output), the first and the second coordinates of a contact: --> ";
                     checkInput(c);
-                    p.addContact(c);
+                    p += c;
                 }
                     break;
                 case 3: {
