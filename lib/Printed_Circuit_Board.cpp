@@ -108,7 +108,7 @@ namespace Lab3B {
         return group;
     }
 
-    double printedCircuitBoard::lengthOfTrack(short c1, short c2) {
+    /*double printedCircuitBoard::lengthOfTrack(short c1, short c2) {
         if (!isCorrectNumber(c1) || !isCorrectNumber(c2))
             throw std::invalid_argument("There are no such contacts");
         if (contacts[c1].numberOfContact != c2) {
@@ -119,7 +119,7 @@ namespace Lab3B {
         int y1 = contacts[c1].y;
         int y2 = contacts[c2].y;
         return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-    }
+    }*/
 
     bool printedCircuitBoard::isCorrectCoordinates(int x, int y) {
         for (int i = 0; i < currentNumber; ++i) {
@@ -187,5 +187,18 @@ namespace Lab3B {
         else
             s << "Number of related contact: --> " << c.numberOfContact << std::endl;
         return s;
+    }
+
+    double printedCircuitBoard::operator()(short c1, short c2) {
+        if (!isCorrectNumber(c1) || !isCorrectNumber(c2))
+            throw std::invalid_argument("There are no such contacts");
+        if (contacts[c1].numberOfContact != c2) {
+            throw std::invalid_argument("These contacts are not connected");
+        }
+        int x1 = contacts[c1].x;
+        int x2 = contacts[c2].x;
+        int y1 = contacts[c1].y;
+        int y2 = contacts[c2].y;
+        return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
     }
 }

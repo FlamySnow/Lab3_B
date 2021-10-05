@@ -50,10 +50,11 @@ namespace Lab3B {
         friend std::ostream & operator << (std::ostream &, const printedCircuitBoard &);
         //void addContact(Contact c);
         printedCircuitBoard & operator += (const Contact &);
-        void establishConnect (short c1, short c2);
+        void establishConnect (short, short);
         const Contact operator[] (short);
+        double operator() (short, short);
         [[nodiscard]] printedCircuitBoard groupOfContacts() const;
-        double lengthOfTrack (short c1, short c2);
+        //double lengthOfTrack (short, short);
     };
 
     template <class T>

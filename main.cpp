@@ -48,7 +48,7 @@ int main() {
                     checkInput(c1);
                     std::cout << "Enter number of the second contact: --> ";
                     checkInput(c2);
-                    std::cout << "Length of track: --> " << p.lengthOfTrack(c1, c2) << std::endl;
+                    std::cout << "Length of track: --> " << p(c1, c2) << std::endl;
                 }
                 break;
                 case 6: {
