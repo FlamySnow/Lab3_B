@@ -151,17 +151,7 @@ namespace Lab3B {
         else {
             for (int i = 0; i < p.currentNumber; ++i) {
                 s << std::endl << "Number of contact: --> " << i << std::endl;
-                s << "Type of contact: --> ";
-                if (p.contacts[i].type == in)
-                    s << "input" << std::endl;
-                if (p.contacts[i].type == out)
-                    s << "output" << std::endl;
-                s << "First coordinate: --> " << p.contacts[i].x << std::endl;
-                s << "Second coordinate: --> " << p.contacts[i].y << std::endl;
-                if (p.contacts[i].numberOfContact == -1)
-                    s << "This contact is disconnected from other contacts" << std::endl;
-                else
-                    s << "Number of related contact: --> " << p.contacts[i].numberOfContact << std::endl;
+                s << p.contacts[i];
             }
         }
         return s;
@@ -176,5 +166,26 @@ namespace Lab3B {
         contacts[currentNumber] = c;
         currentNumber++;
         return *this;
+    }
+
+    const printedCircuitBoard::Contact printedCircuitBoard::operator[](short n) {
+        if (!isCorrectNumber(n))
+            throw std::invalid_argument("There is no such contact in the PCB!");
+        return contacts[n];
+    }
+
+    std::ostream &operator<<(std::ostream & s, const printedCircuitBoard::Contact & c) {
+        s << "Type of contact: --> ";
+        if (c.type == in)
+            s << "input" << std::endl;
+        if (c.type == out)
+            s << "output" << std::endl;
+        s << "First coordinate: --> " << c.x << std::endl;
+        s << "Second coordinate: --> " << c.y << std::endl;
+        if (c.numberOfContact == -1)
+            s << "This contact is disconnected from other contacts" << std::endl;
+        else
+            s << "Number of related contact: --> " << c.numberOfContact << std::endl;
+        return s;
     }
 }

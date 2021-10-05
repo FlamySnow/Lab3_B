@@ -14,7 +14,8 @@ int main() {
         std::cout << "2. Add contact on PCB;" << std::endl;
         std::cout << "3. Establish connect between contacts;" << std::endl;
         std::cout << "4. Get contacts that are in the same group;" << std::endl;
-        std::cout << "5. Get length of the track between contacts." << std::endl;
+        std::cout << "5. Get length of the track between contacts;" << std::endl;
+        std::cout << "6. Get information about specific contact by number." << std::endl;
         std::cout << "Make your choice: --> ";
         checkInput(a);
         std::cout << std::endl;
@@ -49,6 +50,14 @@ int main() {
                     checkInput(c2);
                     std::cout << "Length of track: --> " << p.lengthOfTrack(c1, c2) << std::endl;
                 }
+                break;
+                case 6: {
+                    std::cout << "Enter number of contact: --> ";
+                    checkInput(c1);
+                    c = p[c1];
+                    std::cout << c;
+                }
+                break;
                 case 0: {
                     break;
                 }

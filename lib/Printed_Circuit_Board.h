@@ -31,6 +31,7 @@ namespace Lab3B {
             short numberOfContact;
             Contact();
             Contact(contactType t, int x, int y);
+            friend std::ostream& operator << (std::ostream &, const Contact &);
         };
     private:
         //State of class
@@ -50,6 +51,7 @@ namespace Lab3B {
         //void addContact(Contact c);
         printedCircuitBoard & operator += (const Contact &);
         void establishConnect (short c1, short c2);
+        const Contact operator[] (short);
         [[nodiscard]] printedCircuitBoard groupOfContacts() const;
         double lengthOfTrack (short c1, short c2);
     };
