@@ -21,7 +21,7 @@ int main() {
         try {
             switch (a) {
                 case 1: {
-                    p.print();
+                    std::cout << p;
                 }
                     break;
                 case 2: {
@@ -39,7 +39,7 @@ int main() {
                 }
                     break;
                 case 4: {
-                    p.groupOfContacts().print();
+                    std::cout << p.groupOfContacts();
                 }
                     break;
                 case 5: {

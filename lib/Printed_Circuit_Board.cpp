@@ -144,4 +144,26 @@ namespace Lab3B {
         }
         return s;
     }
+
+    std::ostream &operator<<(std::ostream & s, const printedCircuitBoard & p) {
+        if (p.currentNumber == 0)
+            s << "The PCB is empty!" << std::endl;
+        else {
+            for (int i = 0; i < p.currentNumber; ++i) {
+                s << std::endl << "Number of contact: --> " << i << std::endl;
+                s << "Type of contact: --> ";
+                if (p.contacts[i].type == in)
+                    s << "input" << std::endl;
+                if (p.contacts[i].type == out)
+                    s << "output" << std::endl;
+                s << "First coordinate: --> " << p.contacts[i].x << std::endl;
+                s << "Second coordinate: --> " << p.contacts[i].y << std::endl;
+                if (p.contacts[i].numberOfContact == -1)
+                    s << "This contact is disconnected from other contacts" << std::endl;
+                else
+                    s << "Number of related contact: --> " << p.contacts[i].numberOfContact << std::endl;
+            }
+        }
+        return s;
+    }
 }
