@@ -21,22 +21,6 @@ namespace Lab3B {
         numberOfContact = -1;
     }
 
-    /*printedCircuitBoard::Contact printedCircuitBoard::inputContact() {
-        int x, y, t;
-        contactType type;
-        std::cout << "Enter type of contact (0 for input, 1 for output): --> ";
-        checkInput(t);
-        type = isCorrectType(t);
-        std::cout << "Enter the first coordinate of contact: --> ";
-        checkInput(x);
-        std::cout << "Enter the second coordinate of contact: --> ";
-        checkInput(y);
-        Contact c(type, x, y);
-        return c;
-    }*/
-
-
-
     contactType printedCircuitBoard::isCorrectType(int t) {
         if (t == 0)
             return in;
@@ -44,28 +28,6 @@ namespace Lab3B {
             return out;
         throw std::invalid_argument("Incorrect type of contact");
     }
-
-    /*void printedCircuitBoard::print() const {
-        if (currentNumber == 0) {
-            std::cout << "The PCB has no contacts!" << std::endl;
-            return;
-        }
-        for (int i = 0; i < currentNumber; ++i) {
-            std::cout << "Number of contact: --> " << i << std::endl;
-            std::cout << "Type of contact: --> ";
-            if (contacts[i].type == in)
-                std::cout << "input" << std::endl;
-            if (contacts[i].type == out)
-                std::cout << "output" << std::endl;
-            std::cout << "First coordinate: --> " << contacts[i].x << std::endl;
-            std::cout << "Second coordinate: --> " << contacts[i].y << std::endl;
-            if (contacts[i].numberOfContact == -1)
-                std::cout << "This contact is disconnected from other contacts" << std::endl;
-            else
-                std::cout << "Number of related contact: --> " << contacts[i].numberOfContact << std::endl;
-            std::cout << std::endl;
-        }
-    } */
 
     bool printedCircuitBoard::isCorrectConnection(short c1, short c2) {
         if (!isCorrectNumber(c1) || !isCorrectNumber(c2))
@@ -76,16 +38,6 @@ namespace Lab3B {
             return false;
         return true;
     }
-
-    /*void printedCircuitBoard::addContact(Contact c) {
-        if (currentNumber == maxNumber) {
-            throw std::overflow_error("Cannot add more contacts!");
-        }
-        if (!isCorrectCoordinates(c.x, c.y))
-            throw std::invalid_argument("There is a contact at this place already!");
-        contacts[currentNumber] = c;
-        currentNumber++;
-    }*/
 
     void printedCircuitBoard::establishConnect(short c1, short c2) {
         if (!isCorrectConnection(c1, c2))
@@ -107,19 +59,6 @@ namespace Lab3B {
         }
         return group;
     }
-
-    /*double printedCircuitBoard::lengthOfTrack(short c1, short c2) {
-        if (!isCorrectNumber(c1) || !isCorrectNumber(c2))
-            throw std::invalid_argument("There are no such contacts");
-        if (contacts[c1].numberOfContact != c2) {
-            throw std::invalid_argument("These contacts are not connected");
-        }
-        int x1 = contacts[c1].x;
-        int x2 = contacts[c2].x;
-        int y1 = contacts[c1].y;
-        int y2 = contacts[c2].y;
-        return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-    }*/
 
     bool printedCircuitBoard::isCorrectCoordinates(int x, int y) {
         for (int i = 0; i < currentNumber; ++i) {

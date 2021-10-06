@@ -24,14 +24,14 @@ namespace Lab3B {
 
     class printedCircuitBoard {
     public:
-        struct Contact { //Struct should be in the class or no? Public or private?
+        struct Contact {
             contactType type;
             int x;
             int y;
             short numberOfContact;
             Contact();
             Contact(contactType t, int x, int y);
-            friend std::ostream& operator << (std::ostream &, const Contact &);
+            friend std::ostream& operator << (std::ostream &, const Contact &);//output for contact
         };
     private:
         //State of class
@@ -44,17 +44,14 @@ namespace Lab3B {
         [[nodiscard]] inline bool isCorrectNumber (short n) const {return (n < currentNumber && n >= 0);}
         bool isCorrectConnection (short c1, short c2);
     public:
-        //inline unsigned short getCurrentNumber() {return currentNumber;};
         inline printedCircuitBoard():currentNumber(0) {}; //Implementation is empty because when this constructor is called, constructor of each contact is called too
-        friend std::istream & operator >> (std::istream &, Contact &);
-        friend std::ostream & operator << (std::ostream &, const printedCircuitBoard &);
-        //void addContact(Contact c);
-        printedCircuitBoard & operator += (const Contact &);
+        friend std::istream & operator >> (std::istream &, Contact &);//input of contact
+        friend std::ostream & operator << (std::ostream &, const printedCircuitBoard &);//output for PCB
+        printedCircuitBoard & operator += (const Contact &);//adding contact to PCB
         void establishConnect (short, short);
-        const Contact operator[] (short);
-        double operator() (short, short);
+        const Contact operator[] (short);//get contact by its number
+        double operator() (short, short);//get length of track between contacts
         [[nodiscard]] printedCircuitBoard groupOfContacts() const;
-        //double lengthOfTrack (short, short);
     };
 
     template <class T>
