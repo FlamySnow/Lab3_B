@@ -49,6 +49,8 @@ namespace Lab3B {
         friend std::ostream & operator << (std::ostream &, const printedCircuitBoard &);//output for PCB
         printedCircuitBoard & operator += (const Contact &);//adding contact to PCB
         void establishConnect (short, short);
+        printedCircuitBoard& operator -- ();//prefix, deleting last contact
+        const printedCircuitBoard operator -- (int);//postfix, doing the same thing
         const Contact operator[] (short);//get contact by its number
         double operator() (short, short);//get length of track between contacts
         [[nodiscard]] printedCircuitBoard groupOfContacts() const;

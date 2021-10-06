@@ -140,4 +140,21 @@ namespace Lab3B {
         int y2 = contacts[c2].y;
         return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
     }
+
+    printedCircuitBoard &printedCircuitBoard::operator--() {
+        if (currentNumber == 0)
+            throw std::out_of_range("There is no contacts in the PCB");
+        contacts[currentNumber - 1].numberOfContact = -1;
+        contacts[currentNumber - 1].type = notStated;
+        contacts[currentNumber - 1].x = 0;
+        contacts[currentNumber - 1].y = 0;
+        currentNumber--;
+        return *this;
+    }
+
+    const printedCircuitBoard printedCircuitBoard::operator--(int) {
+        printedCircuitBoard p = *this;
+        --(*this);
+        return p;
+    }
 }

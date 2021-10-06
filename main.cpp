@@ -15,7 +15,8 @@ int main() {
         std::cout << "3. Establish connect between contacts;" << std::endl;
         std::cout << "4. Get contacts that are in the same group;" << std::endl;
         std::cout << "5. Get length of the track between contacts;" << std::endl;
-        std::cout << "6. Get information about specific contact by number." << std::endl;
+        std::cout << "6. Get information about specific contact by number;" << std::endl;
+        std::cout << "7. Delete last contact from PCB." << std::endl;
         std::cout << "Make your choice: --> ";
         checkInput(a);
         std::cout << std::endl;
@@ -58,11 +59,15 @@ int main() {
                     std::cout << c;
                 }
                 break;
+                case 7: {
+                    p--;
+                }
+                break;
                 case 0: {
                     break;
                 }
                 default: {
-                    std::cout << "Enter only numbers from 0 to 5!" << std::endl;
+                    std::cout << "Enter only numbers from 0 to 7!" << std::endl;
                 }
                     break;
             }
