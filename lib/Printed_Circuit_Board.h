@@ -31,7 +31,7 @@ namespace Lab3B {
             short numberOfContact;
             Contact();
             Contact(contactType t, int x, int y);
-            friend std::ostream& operator << (std::ostream &, const Contact &);//output for contact
+
         };
     private:
         //State of class
@@ -45,7 +45,7 @@ namespace Lab3B {
         bool isCorrectConnection (short c1, short c2);
     public:
         inline printedCircuitBoard():currentNumber(0) {}; //Implementation is empty because when this constructor is called, constructor of each contact is called too
-        friend std::istream & operator >> (std::istream &, Contact &);//input of contact
+        friend std::istream & operator >> (std::istream &, printedCircuitBoard::Contact &);//input of contact
         friend std::ostream & operator << (std::ostream &, const printedCircuitBoard &);//output for PCB
         printedCircuitBoard & operator += (const Contact &);//adding contact to PCB
         void establishConnect (short, short);
@@ -55,6 +55,8 @@ namespace Lab3B {
         double operator() (short, short);//get length of track between contacts
         [[nodiscard]] printedCircuitBoard groupOfContacts() const;
     };
+
+    std::ostream& operator << (std::ostream &, const printedCircuitBoard::Contact &);//output for contact
 
     template <class T>
     errorType input (T &a){
