@@ -41,10 +41,10 @@ namespace Lab3B {
         //Methods
         bool isCorrectCoordinates (int x, int y);
         static contactType isCorrectType (int t);
-        [[nodiscard]] inline bool isCorrectNumber (short n) const {return (n < currentNumber && n >= 0);}
+        [[nodiscard]] bool isCorrectNumber (short n) const {return (n < currentNumber && n >= 0);}
         bool isCorrectConnection (short c1, short c2);
     public:
-        inline printedCircuitBoard():currentNumber(0) {}; //Implementation is empty because when this constructor is called, constructor of each contact is called too
+        printedCircuitBoard():currentNumber(0) {}; //Implementation is empty because when this constructor is called, constructor of each contact is called too
         friend std::istream & operator >> (std::istream &, printedCircuitBoard::Contact &);//input of contact
         friend std::ostream & operator << (std::ostream &, const printedCircuitBoard &);//output for PCB
         printedCircuitBoard & operator += (const Contact &);//adding contact to PCB
