@@ -1,9 +1,9 @@
-#Printed Circuit Board
->In this repository you can find a library for work with PCB, also you can try to do it using application program, sources of which is *main.cpp* file.
+# Printed Circuit Board
+> In this repository you can find a library for work with PCB, also you can try to do it using application program, sources of which is *main.cpp* file.
 
-##Description of class
+## Description of class
 
-###Structure "Contact"
+### Structure "Contact"
 
 This class includes structure of contact, which is described with following data:
 * *contactType **type*** - it is type of contact, can be *in* or *out*, initially *notStated*;
@@ -13,14 +13,14 @@ This class includes structure of contact, which is described with following data
 
 Contacts can be connected between itself, but it is possible, only if these contacts aren't connected with another contacts and these contacts are of different types (*in* and *out*);
 
-###State of class
+### State of class
 
 The class is described the following way:
 * *unsigned short **maxNumber*** - max possible number of contacts, can be changed only manually.
 * *Contact **contacts[maxNumber]*** - it is an array of contacts;
 * *unsigned short **currentNumber*** - current number of contacts, initially is zero.
 
-###Private Methods
+### Private Methods
 
 For serviceable work of all public methods of the class there are these private methods:
 1. *bool **isCorrectCoordinates** (int x, int y)* - returns true if there are not a contact with such coordinates, false in other situations;
@@ -28,7 +28,7 @@ For serviceable work of all public methods of the class there are these private 
 3. *bool **isCorrectNumber** (short n)* - returns true if there is a contact with number *n*;
 4. *bool **isCorrectConnection** (short c1, short c2)* - checks conditions for connection of two contacts.
 
-###Public Methods
+### Public Methods
 
 1. *operator **>>*** - you can use this operator for input a contact, it has checks for correct type;
 2. *operator **<<*** - this operator can be used to print information as about PCB as about a Contact;
