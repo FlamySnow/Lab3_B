@@ -13,7 +13,7 @@ namespace Lab3B {
     }
 
     printedCircuitBoard::Contact::Contact(contactType t, int x, int y) {
-        if (t != 0 && t != 1)
+        if (t != in && t != out)
             throw std::invalid_argument("Incorrect type of contact!");
         type = t;
         this->x = x;
@@ -46,11 +46,8 @@ namespace Lab3B {
         contacts[c2].numberOfContact = c1;
     }
 
-    printedCircuitBoard printedCircuitBoard::groupOfContacts() const {
+    printedCircuitBoard printedCircuitBoard::groupOfContacts(unsigned short t) const {
         printedCircuitBoard group;
-        int t;
-        std::cout << "Enter type of contact (0 for in, 1 for out): --> ";
-        checkInput(t);
         contactType type = isCorrectType(t);
         for (int i = 0; i < currentNumber; ++i) {
             if (contacts[i].type == type) {

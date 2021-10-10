@@ -41,7 +41,10 @@ int main() {
                 }
                     break;
                 case 4: {
-                    std::cout << p.groupOfContacts();
+                    unsigned short t;
+                    std::cout << "Enter type of contact (0 for in, 1 for out): --> ";
+                    checkInput(t);
+                    std::cout << p.groupOfContacts(t);
                 }
                     break;
                 case 5: {

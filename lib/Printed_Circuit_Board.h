@@ -53,7 +53,9 @@ namespace Lab3B {
         const printedCircuitBoard operator -- (int);//postfix, doing the same thing
         const Contact operator[] (short);//get contact by its number
         double operator() (short, short);//get length of track between contacts
-        [[nodiscard]] printedCircuitBoard groupOfContacts() const;
+        [[nodiscard]] printedCircuitBoard groupOfContacts(unsigned short) const;
+        [[nodiscard]] unsigned short getCurrentNumber () const {return currentNumber;};
+        [[nodiscard]] static unsigned short getMaxNumber () {return maxNumber;};
     };
 
     std::ostream& operator << (std::ostream &, const printedCircuitBoard::Contact &);//output for contact
